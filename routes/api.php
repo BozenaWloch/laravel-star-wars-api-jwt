@@ -31,8 +31,6 @@ Route::prefix('password')->group(function (): void {
 });
 
 Route::middleware('auth.jwt')->group(function (): void {
-    Route::get('logout', [AuthController::class, 'logout']);
-
     Route::prefix('geolocation')->group(function (): void {
         Route::post('', [GeolocationController::class, 'create']);
         Route::get('/{geolocationId}', [GeolocationController::class, 'read']);

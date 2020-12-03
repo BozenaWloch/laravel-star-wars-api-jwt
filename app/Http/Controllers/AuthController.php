@@ -165,28 +165,6 @@ class AuthController extends Controller
     }
 
     /**
-     * @OA\Get(
-     *     path="/logout",
-     *     summary="User logout",
-     *     tags={"auth"},
-     *     security={{ "apiAuth": {} }},
-     *     @OA\Response(
-     *         response=200,
-     *         description="Success",
-     *         @OA\JsonContent(
-     *            @OA\Property(property="message", type="string", example="Logged out successfully."),
-     *         )
-     *     )
-     * )
-     */
-    public function logout(): JsonResponse
-    {
-        Auth::user()->currentAccessToken()->delete();
-
-        return new JsonResponse(['message' => 'Logged out successfully.'], JsonResponse::HTTP_OK);
-    }
-
-    /**
      * @OA\Post(
      *     path="/password/reset",
      *     summary="Reset user password",

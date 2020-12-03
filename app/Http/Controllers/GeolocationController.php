@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Geolocation\CreateRequest;
 use App\Http\Requests\Geolocation\ReadRequest;
-use App\Http\Requests\User\DeleteRequest;
+use App\Http\Requests\Geolocation\DeleteRequest;
 use App\Http\Resources\Response\GeolocationResourceResponse;
 use App\Models\Geolocation;
 use App\Repositories\GeolocationRepository;
