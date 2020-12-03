@@ -21,11 +21,6 @@ class AuthPolicy extends AbstractPolicy
         return true;
     }
 
-    public function logout(User $user, Request $request): bool
-    {
-        return true;
-    }
-
     public function resetPassword(?User $user, Request $request): bool
     {
         return true;

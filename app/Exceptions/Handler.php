@@ -10,6 +10,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -65,6 +66,13 @@ class Handler extends ExceptionHandler
                 $code = JsonResponse::HTTP_INTERNAL_SERVER_ERROR;
                 unset($messages);
                 $messages[] = 'Internal DB error';
+
+                break;
+            case NotFoundHttpException::class:
+                $code = JsonResponse::HTTP_NOT_FOUND;
+                $messages[] = 'Page not found';
+
+                break;
         }
 
         0 === $code ? $code = JsonResponse::HTTP_BAD_REQUEST : $code;
